@@ -1,0 +1,25 @@
+query ProductsPendingValue {
+	products(first: 10) @paginate @loading {
+		edges @loading {
+			node {
+				id
+				title
+				description
+				featuredImage {
+					id
+					url
+				}
+				variants(first: 3) {
+					edges {
+						node {
+							price {
+								amount
+								currencyCode
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
